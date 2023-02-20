@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import usePostMessages from "../../hooks/usePostMessages";
+import * as S from "./styles";
 
 export const ChatFooter = () => {
   const [message, setMessage] = useState("");
@@ -18,12 +19,18 @@ export const ChatFooter = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Message:
-        <input type="text" value={message} onChange={handleChange} />
-      </label>
-      <input type="submit" />
-    </form>
+    <S.chatFooterContainer tabindex="0">
+      <S.formChat onSubmit={handleSubmit}>
+        <label htmlFor="message">
+          <S.messageInput
+            placeholder="Message"
+            type="text"
+            value={message}
+            onChange={handleChange}
+          />
+        </label>
+        <S.submitMessageInput type="submit" />
+      </S.formChat>
+    </S.chatFooterContainer>
   );
 };
