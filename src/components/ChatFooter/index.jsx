@@ -29,7 +29,7 @@ export const ChatFooter = () => {
             onChange={handleChange}
           />
         </label>
-        <S.submitMessageInput type="submit" />
+        <S.submitMessageInput value="Send" type="submit" />
       </S.formChat>
     </S.chatFooterContainer>
   );

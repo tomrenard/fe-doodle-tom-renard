@@ -10,12 +10,19 @@ export const submitMessageInput = styled.input`
   margin: 8px;
   height: 42px;
   padding: 6px;
+  border-radius: 4px;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
 `;
 
 export const messageInput = styled.input`
   width: 340px;
   height: 42px;
   padding: 6px;
+  border-radius: 4px;
+  border: 2px solid var(--dark-blue);
+  caret-color: var(--dark-blue);
 `;
 
 export const formChat = styled.form`

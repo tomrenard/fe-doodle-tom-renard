@@ -7,33 +7,39 @@ export const chatBodyContainer = styled.div`
   background-size: cover;
   overflow-y: scroll;
   max-height: 600px;
+`;
+
+export const messageContainer = styled.div`
+  display: flex;
+  padding: 8px;
   .message {
-    &__container {
+    &__content {
+      border-radius: 4px;
       max-width: 420px;
       border: 1px solid var(--grey);
       padding: 16px;
     }
-    &__self,
-    &__guest {
-      display: flex;
-      padding: 8px;
-    }
-    &__self {
-      justify-content: end;
-      .message__container {
-        background-color: var(--yellow);
-      }
-    }
-    &__guest {
-      .message__container {
-        background-color: var(--white);
-      }
+    &__author,
+    &__text {
+      margin-bottom: 4px;
     }
     &__author,
     &__date {
       color: var(--grey);
     }
   }
+  &.self {
+    justify-content: end;
+    .message__content {
+      background-color: var(--yellow);
+    }
+    .message__date {
+      text-align: right;
+    }
+  }
+  &.guest {
+    .message__content {
+      background-color: var(--white);
+    }
+  }
 `;
-
-export const messageContainer = styled.div``;
