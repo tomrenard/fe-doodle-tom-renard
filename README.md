@@ -49,6 +49,4 @@ Thanks for having a look at this technical challenge, I am willing to get any fe
 
 ## How it looks like:
 
-<img src="doodle-chat-mobile.png" width="400" alt="chat" />
-
-<video src='doodle-chat.mov' width=360>
+<img src="doodle-chat.png" width="400" alt="chat" />
