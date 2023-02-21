@@ -1,69 +1,54 @@
 # The challenge (Frontend Engineer)
 
-We would like you to build a simple chat interface in Javascript (Typescript is allowed), which is able to send and display messages from
-all senders. Something like this:
+We built here a simple chat interface in Javascript, which can send and display messages from
+all senders.
 
-<img src="chat.png" width="400" alt="chat" />
+## The stack
 
-The assets and additional documentation can be found in the **assets** folder.
+### - React
 
-For this, we have prepared a simple API which receives new messages in a `POST` endpoint
-and lists all messages reverse chronological order in a `GET` endpoint. Please use your personal `YOUR_AWESOME_UNIQUE_TOKEN`.
+### - Vite
 
-You should've gotten the `YOUR_AWESOME_UNIQUE_TOKEN` via email. If not, please do not hesitate to get in touch and we'll provide you one.
+### - ESLint/Prettier
 
-#### List all messages
+### - Styled components
 
-```shell script
-curl https://chatty.doodle-test.com/api/chatty/v1.0/?token=
-[YOUR_AWESOME_UNIQUE_TOKEN]
-```
+### - Axios
 
-#### List 10 messages after a timestamp
+- This package has been chosen without being strongly opinionated, native Fetch API could be a good solution, Axios automatically stringifies data when sending JavaScript objects to the API using the POST method, so it reduces a little bit the lines of code for each call
 
-```shell script
-curl https://chatty.doodle-test.com/api/chatty/v1.0/?
-since=1521096352339&limit=10&token=[YOUR_AWESOME_UNIQUE_TOKEN]
-```
+### - React-query:
 
-#### Send a message
+- It handles all the complexity of caching and reloading data as needed, so you don't have to do all of that manually, for instance when here when we post a new message, we added a side-effect that is invalidating the fetchMessages query that re-triggers it to display the last up-to-date data
 
-```shell script
-curl -X POST \ -H 'Content-Type: application/json' \ -H 'token:
-[YOUR_AWESOME_UNIQUE_TOKEN]' \ -d '{"message":"Hello world","author":"Tom"}' \
-https://chatty.doodle-test.com/api/chatty/v1.0
-```
+## How it could be improved?
 
-# Rules
+### UX/Accessibility
 
-We understand your time is precious and would not want you to spend more than **3 to 5 hours** on this over the span
-of **one week** max. The outcome should be runnable locally on a UNIX-flavored OS (MacOS, Linux) in a common browser.
+- User Notifications: we could notify users about successful task completion, and any errors, and provide instructions to help them correct mistakes
+- Handling users: the UX is really simple now, we can for instance ask the user to prompt his username and fetch it dynamically instead of defining an author by default
 
-You must use **JavaScript** (Vanilla JS, React, ...). Typescript is allowed. We want you to provide a responsive
-implementation. Keep in mind that Doodle is used worldwide and has to work on commonly
-used browsers.
+### Testing
 
-We expect to hear back from you in **one week** from now, latest.
+- Testing: we have only implemented a really basic test, and the test coverage should be improved, for instance, we can mock the API response and test if the data is displayed properly in the chatBody, etc.
 
-# What we expect
+### Handling errors
 
-It is OK if the challenge is not completed. Try to **prioritize** it by what you think is more important. Tell us what
-motivated your technology choices, how you tackled the task, what you would do differently were you given more time,
-what you would differently a second time around, etc.
+- Handling errors: we didn't handle API errors here due to a lack of time but that's something we should have done in a production app
 
-Here are some pointers for you of things we will be looking for:
+## Accessibility
 
-- Commit often, write useful commit messages
-- Code readability
-- Performance: it should load reasonably fast on a mobile device
-- Accessibility: the more usable the interface, the better
-- Design: we are not looking for pixel-pushing, but we love attention to detail
+To make this app as accessible as possible, and that follows WCAG guidelines, we have implemented these two packages:
 
-# Next steps
+- jsx-a11y: it is an ESLint plugin that identifies and enforces several accessibility rules directly in our JSX
+- axe-core: Axe is a fast and lightweight accessibility testing tool that checks the entire document against the rules and generates a report with all violations, passes, etc.
 
-Send an email with a link to your repository solution to `code-challenge@doodle.com`.
+## Feedback
 
-Make sure your email has the following subject: `FE-<yourname>`. So for example, if your name were "Paul Smith",
-your email subject would be `FE-Paul Smith`
+Thanks for having a look at this technical challenge, I am willing to get any feedback, and a special bonus for finding the author of this citation: "Sometimes you gotta go forward by going backward. Are we driving cars or are cars driving us?".
 
-We will review your solution, we strive to get back to you in **1 week**. Sometimes it might take more.
+## How it looks like:
+
+<img src="doodle-chat-mobile.png" width="400" alt="chat" />
+
+<video src='doodle-chat.mov' width=360>

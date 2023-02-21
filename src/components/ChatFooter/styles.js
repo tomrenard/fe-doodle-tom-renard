@@ -9,6 +9,7 @@ export const submitMessageInput = styled.input`
   background-color: var(--orange);
   margin: 8px;
   height: 42px;
+  width: 56px;
   padding: 6px;
   border-radius: 4px;
   color: var(--white);
@@ -23,6 +24,9 @@ export const messageInput = styled.input`
   border-radius: 4px;
   border: 2px solid var(--dark-blue);
   caret-color: var(--dark-blue);
+  @media (max-width: 768px) {
+    width: 260px;
+  }
 `;
 
 export const formChat = styled.form`

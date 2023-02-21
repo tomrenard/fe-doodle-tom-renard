@@ -15,11 +15,11 @@ export const ChatBody = () => {
 
   if (isLoading) return <h1>Loading...</h1>;
   return (
-    <S.chatBodyContainer>
-      {messages?.map(({ _id, message, author, timestamp: date }) => (
+    <S.chatBodyContainer tabIndex={0}>
+      {messages?.map(({ _id: id, message, author, timestamp: date }) => (
         <S.messageContainer
           className={`${author === `${user}` ? "self" : "guest"}`}
-          key={_id}
+          key={id}
         >
           <div className="message__content">
             {author !== `${user}` && (

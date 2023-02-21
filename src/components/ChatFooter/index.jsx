@@ -19,13 +19,14 @@ export const ChatFooter = () => {
   };
 
   return (
-    <S.chatFooterContainer tabindex="0">
+    <S.chatFooterContainer>
       <S.formChat onSubmit={handleSubmit}>
         <label htmlFor="message">
           <S.messageInput
             placeholder="Message"
             type="text"
             value={message}
+            aria-label="type message"
             onChange={handleChange}
           />
         </label>
