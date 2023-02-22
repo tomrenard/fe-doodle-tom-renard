@@ -24,6 +24,7 @@ export const messageContainer = styled.div`
     }
     &__text {
       color: var(--dark-grey);
+      font-size: 1rem;
     }
     &__author,
     &__text {
@@ -32,6 +33,7 @@ export const messageContainer = styled.div`
     &__author,
     &__date {
       color: var(--grey);
+      font-size: 0.9rem;
     }
   }
   &.self {
